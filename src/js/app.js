@@ -70,6 +70,14 @@ barba.init({
           beforeEnter(){
             console.log('before enter')
           }   
+      },
+      {
+        name: 'with-cover',
+        to: {
+          namespace: ['with-cover']
+        },
+        leave() {},
+        enter() {}
       }
     ]
   })
