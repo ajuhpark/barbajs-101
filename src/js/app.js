@@ -4,21 +4,21 @@ import barbaCss from '@barba/css';
 barba.use(barbaCss);
 
 
-//this hook will run before any transition
-barba.hooks.before((data) => {
+// //this hook will run before any transition
+// barba.hooks.before((data) => {
 
-    // trying to get the body background from being the flash of white.
-    // I set a background attribute to the body in webflow
-    const background = data.current.container.dataset.background;
-    // below is setting the --body-background variable in my webflow homepage
-    // to the background color from the barba data site.
-    // some color info
-    // I put #45B565 - green as data-background for cs page to test
-    // I put #4579B5 - blue as data-background for homepage to test
-    // #f7f7f2 is light beige. #f7dcdc is light pink.
-    body.style.setProperty('--body-background', background)
+//     // trying to get the body background from being the flash of white.
+//     // I set a background attribute to the body in webflow
+//     const background = data.current.container.dataset.background;
+//     // below is setting the --body-background variable in my webflow homepage
+//     // to the background color from the barba data site.
+//     // some color info
+//     // I put #45B565 - green as data-background for cs page to test
+//     // I put #4579B5 - blue as data-background for homepage to test
+//     // #f7f7f2 is light beige. #f7dcdc is light pink.
+//     body.style.setProperty('--page-background', background);
   
-  })
+//   });
 
 
 barba.init({
@@ -50,10 +50,7 @@ barba.init({
           // when you leave the page, the fade class will be added to 
           // the container of current page
           leave() {},
-          enter() {
-          },
-          after() {
-          }      
+          enter() {} 
       },
       {
         name: 'clip',
@@ -69,6 +66,7 @@ barba.init({
           // when you leave the page, the clip class will be added to 
           // the container of current page
           leave() {},
+          enter() {},
           beforeEnter(){
             console.log('before enter')
           }   
