@@ -26,50 +26,44 @@ barba.init({
       {
         //setting transition name to home.
         name: 'home',
-          // creating a hook
-          beforeOnce(){
-            console.log('running hook beforeOnce')
-          },
-          // this is a hook that's called once. It happens once on the page load.
-          once(){
-            // with css plugin, this won't work.
-            console.log('running hook once')
-          },
-          // another hook
-          afterOnce(){
-            console.log('running hook afterOnce')
-          },
+        to: {
+          namespace: ['home']
+        },
+        sync: true, 
+        once() {},
+        leave() {},
+        enter() {}
       }, 
       {
         name: 'fade',
-          // we're going to the 'fade' namespace, the one that's the 
-          // namespace for the container in homepage.
-          to:{
-            namespace: ['fade']
-          },
-          // when you leave the page, the fade class will be added to 
-          // the container of current page
-          leave() {},
-          enter() {} 
+        // we're going to the 'fade' namespace, the one that's the 
+        // namespace for the container in homepage.
+        to:{
+        namespace: ['fade']
+        },
+        // when you leave the page, the fade class will be added to 
+        // the container of current page
+        leave() {},
+        enter() {} 
       },
       {
         name: 'clip',
-          // we're going to the 'clip' namespace, the one that's the 
-          // namespace for the container in homepage.
-          // clip-path animation, we have to put in sync: true.
-          sync: true, 
-          // we're going to the 'clip' namespace, the one that's the 
-          // namespace for the container in homepage.
-          to:{
-            namespace: ['clip']
-          },
-          // when you leave the page, the clip class will be added to 
-          // the container of current page
-          leave() {},
-          enter() {},
-          beforeEnter(){
-            console.log('before enter')
-          }   
+        // we're going to the 'clip' namespace, the one that's the 
+        // namespace for the container in homepage.
+        // clip-path animation, we have to put in sync: true.
+        sync: true, 
+        // we're going to the 'clip' namespace, the one that's the 
+        // namespace for the container in homepage.
+        to:{
+          namespace: ['clip']
+        },
+        // when you leave the page, the clip class will be added to 
+        // the container of current page
+        leave() {},
+        enter() {},
+        beforeEnter(){
+          console.log('before enter')
+        }   
       },
       {
         name: 'with-cover',
