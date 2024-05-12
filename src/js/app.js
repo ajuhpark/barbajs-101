@@ -3,22 +3,30 @@ import barba from '@barba/core';
 import barbaCss from '@barba/css';
 barba.use(barbaCss);
 
+const body = document.querySelector('body');
 
-// //this hook will run before any transition
-// barba.hooks.before((data) => {
+// Log to ensure the hook is being set up
+console.log('Setting up Barba hooks');
 
-//     // trying to get the body background from being the flash of white.
-//     // I set a background attribute to the body in webflow
-//     const background = data.current.container.dataset.background;
-//     // below is setting the --body-background variable in my webflow homepage
-//     // to the background color from the barba data site.
-//     // some color info
-//     // I put #45B565 - green as data-background for cs page to test
-//     // I put #4579B5 - blue as data-background for homepage to test
-//     // #f7f7f2 is light beige. #f7dcdc is light pink.
-//     body.style.setProperty('--page-background', background);
-  
-//   });
+// Hook to run before any transition
+barba.hooks.before((data) => {
+    console.log('Before transition hook triggered');
+    
+    // Check if data is available
+    console.log('Data:', data);
+    
+    // Accessing container and dataset
+    const currentContainer = data.current.container;
+    if (currentContainer) {
+        const background = currentContainer.dataset.background;
+        console.log('Background:', background);
+        
+        // Setting body background
+        body.style.setProperty('--page-background', background);
+    } else {
+        console.log('Current container not found.');
+    }
+});
 
 
 barba.init({
